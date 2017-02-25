@@ -30,6 +30,7 @@ class App extends Component {
      console.log(this.state.counter)
   }
   target(e){
+    e.preventDefault()
      let demoValue = parseInt(this.refs.demo.value) 
     this.setState({
       targetValue: demoValue
@@ -39,10 +40,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+         <form onSubmit={this.target}>
            <input type='text' ref='demo' />
-           <button  type='button' onClick={this.target} >Target</button>
-        
+           <button >Target</button>
+        </form>
         <h1>Counter: {this.state.counter}</h1>
         <button  onClick={this.add} type='button'>Add +</button>
         <button  onClick={this.dec} type='button'>Dec -</button>
